@@ -193,8 +193,6 @@ public class Troops implements Serializable {
         setCreated(new Date());
         setCreator(AuthController.user());
         setEnddate(null);
-        Calendar deletedTime = new GregorianCalendar(9999,Calendar.DECEMBER,31, 0,0);
-        setDeleted(deletedTime.getTime());
     }
 
     public Date getModified() {
@@ -294,10 +292,10 @@ public class Troops implements Serializable {
 	    }
 	    
 	    public static List<Troops> findAllTroopses() {
-	        return entityManager().createQuery("SELECT o FROM Troops o where o.deleter is null", Troops.class).getResultList();
+	        return entityManager().createQuery("SELECT o FROM Troops o where o.deleted is null", Troops.class).getResultList();
 	    }
 	    
 	    public static List<Troops> findTroopsEntries(int firstResult, int maxResults) {
-	        return entityManager().createQuery("SELECT o FROM Troops o where o.deleter is null", Troops.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+	        return entityManager().createQuery("SELECT o FROM Troops o where o.deleted is null", Troops.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
 	    }
 }

@@ -1,10 +1,8 @@
 package ee.piirivalve.entities;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -85,8 +83,6 @@ public class Guard implements Serializable {
     public void recordCreated() {
         setCreated(new Date());
         setCreator(AuthController.user());
-        Calendar deletedTime = new GregorianCalendar(9999,Calendar.DECEMBER,31, 0,0);
-        setDeleted(deletedTime.getTime());
     }
 
     public Date getModified() {
@@ -196,11 +192,11 @@ public class Guard implements Serializable {
     }
     
     public static List<Guard> findAllGuards() {
-        return entityManager().createQuery("SELECT o FROM Guard o where o.deleter is null", Guard.class).getResultList();
+        return entityManager().createQuery("SELECT o FROM Guard o where o.deleted is null", Guard.class).getResultList();
     }
     
     public static List<Guard> findGuardEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM Guard o where o.deleter is null", Guard.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+        return entityManager().createQuery("SELECT o FROM Guard o where o.deleted is null", Guard.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }
