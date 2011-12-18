@@ -173,8 +173,7 @@ public class BorderSection implements Serializable {
         setCreator(AuthController.user());
         setStartdate(new Date());
         setEnddate(null);
-        Calendar deletedTime = new GregorianCalendar(9999,Calendar.DECEMBER,31, 0,0);
-        setDeleted(deletedTime.getTime());
+        
     }
 
     public Date getModified() {
@@ -271,11 +270,11 @@ public class BorderSection implements Serializable {
     }
 	
     public static List<BorderSection> findAllBorderSections() {
-        return entityManager().createQuery("SELECT o FROM BorderSection o where o.deleter is null", BorderSection.class).getResultList();
+        return entityManager().createQuery("SELECT o FROM BorderSection o where o.deleted is null", BorderSection.class).getResultList();
     }
     
     public static List<BorderSection> findBorderSectionEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM BorderSection o where o.deleter is null", BorderSection.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+        return entityManager().createQuery("SELECT o FROM BorderSection o where o.deleted is null", BorderSection.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

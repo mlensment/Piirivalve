@@ -176,8 +176,6 @@ public class CrossingPoint implements Serializable {
         setCreated(new Date());
         setCreator(AuthController.user());
         setEnddate(null);
-        Calendar deletedTime = new GregorianCalendar(9999,Calendar.DECEMBER,31, 0,0);
-        setDeleted(deletedTime.getTime());
     }
 
     public Date getModified() {
@@ -274,11 +272,11 @@ public class CrossingPoint implements Serializable {
     }
 	
     public static List<CrossingPoint> findAllCrossingPoints() {
-        return entityManager().createQuery("SELECT o FROM CrossingPoint o where o.deleter is null", CrossingPoint.class).getResultList();
+        return entityManager().createQuery("SELECT o FROM CrossingPoint o where o.deleted is null", CrossingPoint.class).getResultList();
     }
     
     public static List<CrossingPoint> findCrossingPointEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM CrossingPoint o where o.deleter is null", CrossingPoint.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+        return entityManager().createQuery("SELECT o FROM CrossingPoint o where o.deleted is null", CrossingPoint.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }
