@@ -54,18 +54,18 @@ public class BorderSection implements Serializable {
 	private String modifier;
 	private String deleter;
 	
-	@DateTimeFormat(style="M-")
+	@DateTimeFormat(pattern="d.MM.yyyy")
 	private Date modified;
 	
-	@DateTimeFormat(style="M-")
+	@DateTimeFormat(pattern="d.MM.yyyy")
 	private Date created;
 	
-	@DateTimeFormat(style="M-")
+	@DateTimeFormat(pattern="d.MM.yyyy")
 	private Date deleted;
 	
-	@DateTimeFormat(style="M-")
+	@DateTimeFormat(pattern="d.MM.yyyy")
 	private Date startdate;
-	@DateTimeFormat(style="M-")
+	@DateTimeFormat(pattern="d.MM.yyyy")
 	private Date enddate;
 	
 	@OneToMany(mappedBy = "borderSection")

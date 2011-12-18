@@ -50,22 +50,22 @@ public class CrossingPoint implements Serializable {
     @NotNull
     private String height;
 	
-	@DateTimeFormat(style="M-")
+    @DateTimeFormat(pattern="d.MM.yyyy")
 	private Date startdate;
-	@DateTimeFormat(style="M-")
+    @DateTimeFormat(pattern="d.MM.yyyy")
 	private Date enddate;
 
 	private String creator;
 	private String modifier;
 	private String deleter;
 	
-	@DateTimeFormat(style="M-")
+	@DateTimeFormat(pattern="d.MM.yyyy")
 	private Date modified;
 	
-	@DateTimeFormat(style="M-")
+	@DateTimeFormat(pattern="d.MM.yyyy")
 	private Date created;
 	
-	@DateTimeFormat(style="M-")
+	@DateTimeFormat(pattern="d.MM.yyyy")
 	private Date deleted;
 	
 	private static final long serialVersionUID = 1L;

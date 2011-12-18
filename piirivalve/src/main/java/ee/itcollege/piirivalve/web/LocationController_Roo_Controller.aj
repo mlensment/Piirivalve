@@ -12,8 +12,6 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import org.joda.time.format.DateTimeFormat;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -106,9 +104,9 @@ privileged aspect LocationController_Roo_Controller {
     }
     
     void LocationController.addDateTimeFormatPatterns(Model uiModel) {
-        uiModel.addAttribute("location_modified_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("location_created_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("location_deleted_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("location_modified_date_format", "d.MM.yyyy");
+        uiModel.addAttribute("location_created_date_format", "d.MM.yyyy");
+        uiModel.addAttribute("location_deleted_date_format", "d.MM.yyyy");
     }
     
     String LocationController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

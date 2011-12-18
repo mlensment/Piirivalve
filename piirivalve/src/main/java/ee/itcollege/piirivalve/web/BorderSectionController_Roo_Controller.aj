@@ -14,8 +14,6 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import org.joda.time.format.DateTimeFormat;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -111,11 +109,11 @@ privileged aspect BorderSectionController_Roo_Controller {
     }
     
     void BorderSectionController.addDateTimeFormatPatterns(Model uiModel) {
-        uiModel.addAttribute("borderSection_startdate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("borderSection_enddate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("borderSection_modified_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("borderSection_created_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-        uiModel.addAttribute("borderSection_deleted_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("borderSection_startdate_date_format", "d.MM.yyyy");
+        uiModel.addAttribute("borderSection_enddate_date_format", "d.MM.yyyy");
+        uiModel.addAttribute("borderSection_modified_date_format", "d.MM.yyyy");
+        uiModel.addAttribute("borderSection_created_date_format", "d.MM.yyyy");
+        uiModel.addAttribute("borderSection_deleted_date_format", "d.MM.yyyy");
     }
     
     String BorderSectionController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

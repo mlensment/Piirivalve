@@ -43,13 +43,13 @@ public class Guard implements Serializable {
 	private String modifier;
 	private String deleter;
 	
-	@DateTimeFormat(style="M-")
+	@DateTimeFormat(pattern="d.MM.yyyy")
 	private Date modified;
 	
-	@DateTimeFormat(style="M-")
+	@DateTimeFormat(pattern="d.MM.yyyy")
 	private Date created;
 	
-	@DateTimeFormat(style="M-")
+	@DateTimeFormat(pattern="d.MM.yyyy")
 	private Date deleted;
 	
 	public String getName() {
