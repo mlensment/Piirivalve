@@ -17,8 +17,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ee.itcollege.piirivalve.web.AuthController;
 import ee.piirivalve.entities.Troops;
+
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.OneToMany;
@@ -58,6 +61,8 @@ public class Location implements Serializable {
     public void recordCreated() {
         setCreated(new Date());
         setCreator(AuthController.user());
+        Calendar deletedTime = new GregorianCalendar(9999,Calendar.DECEMBER,31, 0,0);
+        setDeleted(deletedTime.getTime());
     }
 
     public Date getModified() {
@@ -175,10 +180,10 @@ public class Location implements Serializable {
     }
     
     public static List<Location> findAllLocations() {
-        return entityManager().createQuery("SELECT o FROM Location o where o.deleted is null", Location.class).getResultList();
+        return entityManager().createQuery("SELECT o FROM Location o where o.deleter is null", Location.class).getResultList();
     }
     
     public static List<Location> findLocationEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM Location o where o.deleted is null", Location.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+        return entityManager().createQuery("SELECT o FROM Location o where o.deleter is null", Location.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
 }
