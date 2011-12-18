@@ -3,7 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_ee_piirivalve_entities_BorderGuard" modelAttribute="borderGuard" path="/borderguards" render="${empty dependencies}" z="iDHb9gK/buzhLHcw1gRL9RNLFGk=">
-        <field:input field="name" id="c_ee_piirivalve_entities_BorderGuard_name" z="ix/SjXy7nAC/Jiw9UUPYAj/1EXU="/>
+        <field:input field="name" id="c_ee_piirivalve_entities_BorderGuard_name" required="true" z="ix/SjXy7nAC/Jiw9UUPYAj/1EXU="/>
         <field:select field="guard" id="c_ee_piirivalve_entities_BorderGuard_guard" itemValue="id" items="${guards}" path="/guards" z="UwzTtoAXaKZASgWjIiKK8hqR8RI="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_piirivalve_entities_BorderGuard" render="${not empty dependencies}" z="RZNdfIddIPwggOCgi2/lDwtivj0="/>

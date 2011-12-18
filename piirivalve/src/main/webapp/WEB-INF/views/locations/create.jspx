@@ -3,7 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_ee_piirivalve_entities_Location" modelAttribute="location" path="/locations" render="${empty dependencies}" z="Ylp+YMnM1h9Nww/FZD0+0YJUhPo=">
-        <field:input field="name" id="c_ee_piirivalve_entities_Location_name" z="dmHIGnj3OSVtzEbizL83wY1JvmA="/>
+        <field:input field="name" id="c_ee_piirivalve_entities_Location_name" required="true" z="dmHIGnj3OSVtzEbizL83wY1JvmA="/>
         <util:placeholder id="c_ee_piirivalve_entities_Location_creator"/>
         <util:placeholder id="c_ee_piirivalve_entities_Location_modifier"/>
         <util:placeholder id="c_ee_piirivalve_entities_Location_deleter"/>
